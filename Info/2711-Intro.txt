@@ -1,0 +1,107 @@
+ What is "class"?  What do you meant by the term "class"?
+ 
+
+ The term "class" refer the datatype. The datatypes we've used in different
+ programming languages are "classes" or "types" to represent data of different
+ kind.
+
+ Why we uses "class" keyword in Java?
+
+ The "class" keyword is used to create a new datatype either from the scratch or
+ creating a class or type from existing type (which is known as inheritance).
+
+   
+ What we use "classes"?
+
+ In order to solve any kind of problem, we must think & use the datatypes or classes.
+ 
+ In fact, we use datatypes to represent data into memory (RAM).
+ 
+
+ What is an object?
+
+    Collection of allocated bytes is called an "object".  
+
+ OR
+
+    Partitioned area of memory is called an object.
+
+
+ In Java, we have two types of datatypes:
+
+    1. Primitive Types  and
+
+    2. Reference Types 
+
+
+  1. Primitive Types
+
+     Primitive datatypes or classes are not designed as per object-oriented
+     programm design and hence they are called "primitive and non-oop"      classes/datatypes.  
+
+     List of primitive types
+     ---------------------------
+           Name			Size (in bytes)
+	   byte			1 
+	   short		2
+	   int			4
+           long			8
+	   float		4
+           double		8
+           char			2
+           boolean		1 (Not available)
+
+     So, we have 8 (eight) primitive datatypes and which have non-oop design.
+
+  2. Reference Types 
+
+     These datatypes are created using object-oriented program design approach
+     using "class", "interface" and "enum" keywords.
+
+         
+     Primitive types are fixed-length (size) datatypes whereas reference types are
+     variable length datatypes.
+
+ Memory architecture of Java Program (JVM)
+ ===========================================
+
+ When we launch/run the Java program, the JVM's memory manager allocate 1 MB memory
+ for local variables, method parameters, return type and method calls and this
+ 1 MB memory is known as "Stack Frame" memory.
+
+ If we need more memory than 1 MB to store large volume of data, we must tell the
+ JVM using "new" keyword that we need more memory. And this memory allocation is
+ known as "Heap Frame" memory.
+
+
+ The size of "Stack frame" is fixed and it is 1 MB whereas the size of "Heap" can be
+ vary from 1 byte to 4 GB (or more).
+
+
+ The "Primitive" types can uses "Stack" as well as "Heap" frame memory whereas
+ the "Reference" types always uses "Heap" frame memory.
+
+ Primitive types used as "local variables" and function arguments uses "Stack frame".
+
+ Primitive types used with class, interface and enum (Reference types) always uses
+ "Heap frame".
+
+
+Homework
+========
+
+1. Learn java.lang package datatypes
+
+          java.lang.Object
+          java.lang.Integer, java.lang.Double, java.lang.Short, java.lang.Boolean etc
+
+2. Access control keywords in Java (e.g public private etc)
+
+3. Java's naming conventions for variables, fields, methods and type name.
+
+4. package mechanism in Java
+
+
+
+
+      

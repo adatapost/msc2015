@@ -1,0 +1,49 @@
+ Java SE - Installation & Environment setting
+ --------------------------------------------
+ JavaSE includes:
+   1.  Java Language ( java compiler)
+   2.  Java Core Application Programming Interface (API)
+   3.  Java Runtime Environment (JRE)
+
+  Basically JavaSE will be installed at x:\Program Files\Java\jdkx.x.x  folder and
+  after installing the JavaSE, we need to set environment path of "javac.exe", 
+  "java.exe" and other tools.
+
+  Why we've to set environment variable "path"?
+
+  To execute the javac (java compiler) and java (java virutal machine) and other
+  executables files anywhere. The "path" helps the operating system to lookup the
+  given command or name of executables in specified path directories.
+
+  Control Panel + System + Advanced System Settings + Environment Variables +
+  New (Edit) + 
+
+          Name : Path 
+        Value  : "C:\Program Files\java\......\bin";
+
+  
+ Example:
+
+>notepad HelloApp.java
+
+package in.meh;
+
+public class HelloApp {
+  
+  public static void main(String []args) {
+
+     System.out.println("Hello World!");
+
+   }
+}
+
+>javac HelloApp.java -d .
+  
+   -d   stands for create package directories
+   .    points the current directory
+
+>java in.meh.HelloApp   <------ Fully qualified class name
+
+
+ 
+ 

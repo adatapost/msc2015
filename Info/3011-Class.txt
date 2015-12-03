@@ -1,0 +1,69 @@
+ Type and members naming conventions
+ ====================================
+  
+  1. Always use "PascalCase" to name the class, interface,enum or annotation. 
+     [Capitalize the first letter of each word].
+  2. Don't add/use underscore with type (class,interface,enum etc) name.
+
+  3. Use "camelCase" for local variables, fields, parameters and method names.
+     [First world must be lowerletter and then capitalize the first letter of
+      each word.]
+
+     For example,
+
+            int numberOfOptions;
+            public void setPaymentMode(String mode) {}
+
+  4. Use all caps (CAPITAL) to name the constants.
+
+    e.g   final double PI = 3.14;
+
+    [ The "final" keyword with variable creates a constant variable]
+
+     We can use underscore with constants. e.g NAME_OF_TABLE
+                                               MONTH_NAME
+          
+
+How to design a class?
+========================
+ In order to design a class, we need to add following content with some
+ basic rules:
+
+  1. Fields must be "private"
+  2. Methods which encapsulate the "private" fields must be public (Getter & Setter
+     methods must be public).
+  3. Must have appropriate constructors to initialize the fields
+  4. Override the equals, hashCode and toString if required.
+  5. Use standard naming convention while creating getter/setter
+
+    For example,
+  
+     public class Emp {
+          private int empId;  //field
+          public void setEmpId(int empId) {
+                this.empId = empId;
+          }
+          public int getEmpId() {
+                return empId;
+          }
+      }
+
+Access modifiers (Access control keywords)
+===========================================
+
+1. public  -- Visible to everywhere
+2. private -- Visible to enclosing classes
+3. protected -- Visible to enclosing classes and sub-classes
+4.           -- (Nameless or no name or package-level-private) - only visible inside
+		 the package.
+
+Example: Check the "package-level-private" access.  
+
+In previous example (Cross package example), remove the "public" access of "Emp" class at d:\Abc folder.   Repeat all steps described in previous example.
+
+
+Homework
+=========
+1. Inheritance
+2. Interface implementation
+

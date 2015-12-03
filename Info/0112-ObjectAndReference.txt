@@ -1,0 +1,97 @@
+ Object and reference variable
+ ============================================================================
+
+
+ An object (allocated memory region) has an address and that address is represented
+ by the "reference variable".
+
+ Example:
+
+    String name = "Raj";
+
+Or
+
+    String name = new String("Raj");
+
+    Here, an object (of 6 bytes) created with "Raj" content and its address is
+    assigned to the "name" variable so the "name" is called "reference variable".
+
+ Any variable of type "class","interface" or "enum" is a reference variable.
+
+    Reference variable can represent "null". That means "missing an object" or "object 
+    is not exists".
+
+      e.g String name = null;
+
+
+Test.java
+------------
+
+package in.abc;
+
+class Foo {
+   int no;
+}
+class Test {
+  public static void main(String []args) {
+      Foo a = new Foo();  // JVM allocates bytes (object) and returns its reference
+      Foo b = a;          // Reference copy
+
+      a.no = 10;
+      b.no = 30;
+
+      System.out.println(a.no + " " + b.no); 
+
+      b = new Foo();  //New object will be created and returns reference to "b"
+      a.no = 100;
+      b.no = 200;
+
+      System.out.println(a.no + " " + b.no); 
+  }
+}
+
+>javac Test.java -d .
+>java in.abc.Test
+
+
+IMPORTANT: Reference variable in Java has a fixed length -- It is 4 bytes or 8 bytes --- depends upon the architecture (32 or 64 bits).
+
+Method/function parameters in Java
+==================================
+
+Called by value or Passed by value is the only way to pass arguments in Java.
+
+
+Called or passed by value means : When we call a function/method, value being copied
+between function call and changes to the parameters cannot affect the actual arguments.
+
+Example: 
+Test.java
+--------------
+package in.abc;
+
+class Foo {
+   int no;
+}
+class Test {
+  public static void test1(Foo t) {
+    t.no = 100;
+  }
+  public static void test2(Foo t) {
+    t = new Foo();  //Changes in local variable will not affect the actual argument
+    t.no = 200;
+  }
+  public static void main(String []args) {
+      Foo a = new Foo();
+      Foo b = new Foo();
+
+      System.out.println(a.no); // 0
+      test1(a);   //copy the argument (actual argument value)
+      System.out.println(a.no); // 100
+
+      System.out.println(b.no); // 0
+      test2(b);  //copy the argument    
+      System.out.println(b.no); // 0
+  }
+}
+

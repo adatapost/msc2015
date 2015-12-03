@@ -1,0 +1,114 @@
+ Package
+ ========
+
+ What is "package"?
+
+   Package is a mechanism to create a "group" to keep one group of "classes" distinct
+   from another group of "classes" (To avoid name collision) and to set visibility    (access) to the types so some of them are only visible inside the package and
+   some of them are visible everywhere.
+
+
+  For example,  We cannot create two "Font" classes into a single package but we
+                can create two "Font" classes into two different packages:
+
+   package first;
+   public class Font { }
+
+
+   package second;
+   public class Font { }
+
+   
+   Naming convention of package: 
+   -------------------------------
+    1. Package name must be of lower letters
+    2. Use "reverse domain name" with atleast two level.
+
+      e.g  www.dhruvi.in   =>   in.dhruvi
+           www.avd.in	   =>   in.avd 
+    
+   NOTE:  Package names - java and javax are reserved for donot use these names
+			  for your own classes.
+
+  
+  What do you meant by "importing a package or class"?
+
+   To "import" means to tell the compiler to add package name (prefix) to the
+   imported classes.
+
+  For example,
+
+   package in.meh;
+
+   import java.util.Date;  <-- The java compiler will add "java.util" prefix in the
+				following code.
+
+    public class Test {
+       public static void main(String []args) {
+           Date now = new Date();
+           //however we can also use fully qualified name
+           java.util.Date now1 = new java.util.Date();
+           System.out.println( now );
+           System.out.println( now1 );
+        }
+    }
+
+>javac Test.java -d .
+>java in.meh.Test
+
+Example: Access "classes" which are defined into other packages (folders) - Cross package classes.
+
+1. Create "Abc" folder at C: or D:
+
+d:\abc>
+
+2. Create "Emp" class under "com.meh" package
+
+d:\abc>notepad Emp.java
+package com.meh;
+public class Emp {
+  public Emp() {
+      System.out.println("Emp");
+  }
+}
+
+d:\abc>javac Emp.java -d .
+
+3. Create "Pqr" folder 
+
+d:\pqr>
+
+4. Create "EmpTest" class under "in.meh" package
+
+d:\pqr>notepad EmpTest.java
+
+package in.meh;
+public class EmpTest {
+  public static void main(String []args) {
+       com.meh.Emp e = new com.meh.Emp();
+  }
+}
+
+Or
+
+package in.meh;
+import com.meh.Emp;
+public class EmpTest {
+  public static void main(String []args) {
+        Emp e = new  Emp();
+  }
+}
+
+d:\Pqr>javac -cp  .;d:\Abc  EmpTest.java
+
+    -cp   means CLASSPATH
+
+d:\Pqr>java -cp .;d:\Abc in.meh.EmpTest
+
+c:\>java -cp .;d:\Abc;d:\Pqr in.meh.EmpTest
+
+
+
+    
+
+

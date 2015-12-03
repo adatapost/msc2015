@@ -1,0 +1,54 @@
+ OOP - Object-Oriented Paradigm?
+ ----------------------------------
+
+  It is a "program" design technique (pattern) which allow us:
+
+      1. Resuability of code
+      2. Extendability of code (Inheritance)
+      3. Polymorphism and
+      4. Abstraction 
+
+ Abstraction : It outlines the creator of code and user of the code. (It separates                code creator from code user).
+
+ 		e.g  int, float etc are some names that we know these are datatypes
+			but we don't know what content or code they have.
+
+		System.out.println() is an example of abstraction where we (user)
+                uses "println" name but don't know the code behind.
+
+ Resuability : Composition & Inheritance are two ways to re-use the code.
+
+   Composition example:
+   --------------------
+     public class Address {
+            private String city;
+            private int pin;
+            //create constructors and getter/setters
+     }
+
+     public class Student {
+            private int roll;
+            private String name;
+            private Address localAddress;
+            private Address postalAddress;
+
+            //create constructors & getter/setters
+      }
+
+ Example: 
+
+    class Point {
+           private int x,y;
+    }
+    class Rect {
+            private Point start;
+            private Point end;
+    }
+    class Circle {
+            private double radius;
+            private Point location;
+     }
+
+
+  
+
