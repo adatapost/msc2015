@@ -1,0 +1,123 @@
+Example: Point, Rect, Circle etc
+
+public class Point {
+   private int x,y;
+   public Point() {
+     x=0;
+     y=0;
+   }
+   public Point(int x,int y) {
+     this.x=x; 
+     this.y=y;
+   }
+   public int getX() { return x;}
+   public int getY() { return y;}
+   public void setX(int x) { this.x=x;}
+   public void setY(int y) { this.y=y;}
+}
+public class Rect {
+   private Point start,end;
+   public Rect(){
+       start = new Point();
+       end = new Point();
+   }
+   public Rect(Point start, Point end) {
+      this.start = start;
+      this.end = end;
+   }
+   public Point getStart() { return start;}
+   public Point getEnd() { return end;}
+   public void setStart(Point start) { this.start = start; }
+   public void setEnd(Point end) { this.end = end;}
+}
+
+
+public class RectTest {
+
+  //Test-1
+  public static void test1() {
+      Rect r = new Rect();
+      r.getStart().setX(10);
+      r.getStart().setY(20);
+      r.getEnd().setX(200);
+      r.getEnd().setY(400);
+      System.out.println(r.getStart().getX() + " " 
+           + r.getStart().getY() + " " 
+           + r.getEnd().getX() + " " 
+           + r.getEnd().getY());
+  }
+
+  //Test-2
+  public static void test2() {
+       Rect r = new Rect(new Point(10,20), new Point(200,400));
+       System.out.println(r.getStart().getX() + " " 
+           + r.getStart().getY() + " " 
+           + r.getEnd().getX() + " " 
+           + r.getEnd().getY());
+  }
+  //Test-3
+  public static void test3() {
+        Point p1 = new Point(10,20);
+        Point p2 = new Point(200,400);
+        Rect r = new Rect(p1,p2);
+       System.out.println(r.getStart().getX() + " " 
+           + r.getStart().getY() + " " 
+           + r.getEnd().getX() + " " 
+           + r.getEnd().getY());
+   }
+ //Test-4
+ public static void test4() {
+       Rect r = new Rect();
+       r.setStart(new Point(10,20));
+       r.setEnd(new Point(200,400));
+        System.out.println(r.getStart().getX() + " " 
+           + r.getStart().getY() + " " 
+           + r.getEnd().getX() + " " 
+           + r.getEnd().getY());
+ }
+ public static void main(String []args) {
+     test1();
+     test2();
+     test3();
+     test4();
+  }
+}//end of class RectTest
+
+ 
+Example:
+
+class Exam {
+   private String date;
+}
+class Subject {
+    private String name;
+}
+class ExamSubject {
+      private Exam exam;
+      private Subject subject;
+      private int totalMarks;
+}
+
+Example:
+
+class Bank {
+   private String name;
+   private String address;
+}
+class Customer {
+   private String name;
+   private String address;
+}
+class Account { 
+   private int accountNo;
+   private Bank bank;
+   private Customer customer;
+}
+
+
+
+
+
+
+
+
