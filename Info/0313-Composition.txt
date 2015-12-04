@@ -116,6 +116,20 @@ class Account {
 
 
 
+class Person {
+   String name;
+   Person father,mother;
+}
+
+ Person p1 = new Person("A",null,null);
+ Person p2 = new Person("B",null,null);
+
+ Person p3 = new Person("C",p1,p2);
+ Person p4 = new Person("D",null,null);
+ 
+ Person p5 = new Person("K",p3,p4);
+
+ p5.getFather().getFather()
 
 
 

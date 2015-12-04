@@ -1,0 +1,71 @@
+Municipality Office Automation & Administrator App
+=================================
+
+As citizens, we face difficulties and problems occurring in our cities, which is needed to take actions by the local municipalities. When citizens witness difficulties, they want to direct their messages to the officials to solve the problem. However, citizens generally ignore the problem because they cannot communicate the officials easily. The best way to solve this problem is to provide an application which will work on smart phones that most of the people have nowadays and allow the citizen to direct their complaints to the related municipalities without bothering with procedures and immediately when they face the problem.
+
+Active Citizen Application will work on smart phones and help the citizens actively participate in the city management and the city life. Citizens will be able to make complaints or suggestions on topics related to municipal services and will be able to actively join the discussions via the help of our system. 
+
+Our proposed system will provide online solutions to the problem of making citizens’ voice to be heard by the municipality administrations. We propose a system that would considerably decrease the time and money to be spent for reaching the necessary officials. By the help of the application, the ongoing problems in the cities will be able to be detected and solved in a quicker way. The application will also provide ease of access to administrative institutions. By the help of the application, the ongoing problems in the cities will be able to be detected and solved in a quicker way. 
+The system provides different user interface to different user types. Citizens will be able to register and later log on to the system. By choosing from different categories available such as environment, health services, water supply services, construction services, social services, electricity services and tax related services. The user will be directed to different menus and pages that include announcement section, suggestions/complaints section and the discussion section.
+
+Purpose
+=======
+
+The purpose of this Software Requirements Specification (SRS) document is to provide a detailed description of the functionalities of the  Municipality system. This document will cover each of the system’s intended features, as well as offer a preliminary glimpse of the software application’s User Interface (UI). The document will also cover hardware, software, and various other technical dependencies.  
+Municipality App is to provide active participation in city management for citizens so that the obstacles or difficulties can be solved with less effort and within short time. Therefore barriers between citizens and officials can be removed and citizens, non-governmental organizations and municipalities will be able to communicate quickly and easily. With this goal, capability and quality of the current system will be improved and reduce the total cost necessary for solving problems.
+
+Because of wide use of mobile or smartphones, people of city can quickly access the information about properties tax, professional server taxes and many other details.
+
+The major activities are carried out by the proposed application are:
+
+1.	Provide e-Invoice of properties  (Resendential, Industrial, Commercial etc)
+2.	Property Tax payment and outstanding report
+3.	Professional tax payment
+4.	Rent of Municipality own buildings
+5.	Birth & Death Registration
+6.	Shop Registration
+7.	Complaint Registration (Street light, Traffic, Road, Water, Drainage etc)
+8.	Ambulance & fire services
+9.	News, tender, and advertisement information
+Municipality App is aimed to provide various services & information as quickly and conveniently as possible.
+
+Scope
+=====
+The  Municipality system is composed of two main components: a client-side application which will run on Android handsets, and a server-side application which will support and interact with various client-side features. 
+The system is designed to facilitate the process of tracking and settling shared expenses. Potential scenarios include paying rent & text, managing complaints, encouraging citizens, etc.  
+In this App will improve active participation of citizens in the city management. Reduce the total cost to providing better management of the city according to citizens’ needs. Have better improvement than existing systems in terms of capability, performance, product lines, security, safety and functionality. Have better improvement than the current systems in terms of cost including development cost, maintenance cost and deployment cost. 
+
+Modules
+========
+Module: 
+User Account 
+
+=> In this module the user can create their account and registered their self. Then after registration successfully the user can login their accounts.
+=> After login the user can manage their details accordingly.
+
+Admin : 
+=> Up-to-date properties details
+=> Confirm the payment
+=> Verify birth & death applications and issue certificates
+=> Check the complaint.
+=> Admin shall also follow the situation of their comments like pending, being evaluated, or replied. 
+=> Admin shall be able to decide whether a comment related and worth to be evaluated or not. 
+=> Admin shall evaluate the notifications made by officials about citizens. 
+=> They shall be able to warn them and delete their account if it is needed. 
+=> Update the information related to different departments.
+
+User : 
+=> User shall be able to create new accounts and log on to the system with their accounts. 
+=> Users shall be able post comments and suggestions. 
+=> Submit complaints.
+=> User can view the information.
+=> User can apply for different type of connection(water connection, electricity connection, drainage connection)
+
+
+Approaches used to design & develop the application
+=============================
+There are a number of approaches for managing project activities including lean, iterative, and phased or traditional (waterfall) approaches. Regardless of the methodology employed, careful consideration must be given to the overall project objectives, timeline, and cost, as well as the roles and responsibilities of all participants and stakeholders.
+
+Lean project management uses the principles from lean manufacturing to focus on delivering value with less waste and reduced time.
+
+Itertative approach - Agile project management encompasses several iterative approaches, based on the principles of human interaction management and founded on a process view of human collaboration. Agile-based methodologies are "most typically" employed in software development as well as the "website, technology, creative, and marketing industries.
