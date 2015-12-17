@@ -1,0 +1,159 @@
+ Inheritance
+ ===========
+ To create a "type (class)" from existing type (class) is called inheritance.
+
+ A newly created class is called "sub-class" and a class that is used to create
+ a new class is called "super-class".
+
+ Syntax - 1
+
+   access class SubClass extends SuperClass {
+     ...
+   }
+
+ Syntax - 2  -- Anonymous (a class has no name) inner class syntax
+
+   ClassName varName = new ClassName() {
+       //methods and statements...
+       .....
+   };
+
+  Explanation:
+
+    ClassName varName =  new [? extends ClassName]() {
+       [method override]
+    };
+ 
+ For example: (code in main())
+
+     Object greet = new Object() {
+         @Override
+         public String toString() {
+            return "Hello World!";
+         }
+     };  
+     System.out.println(greet);  //Hello World
+
+
+ java.lang.Object - The ultimate super class 
+ --------------------------------------------
+ The java.lang.Object is the automatic super class of all Java classes including -  Android, JavaEE, Java SE, Java ME or user-defined (our) classes.
+
+ The "Object" class automatically adds thread, thread lock, object clone and object
+ comparision behavior to each Java class.
+
+ It means the following code:
+
+     public class Product {} is same as 
+     public class Product extends java.lang.Object {}
+
+ Method overriden
+ ----------------
+ To replace the super class method by creating same signature method in sub-class
+ is called method overriden.
+
+For example:
+
+ public class A {
+    public void print(int n) {
+    }
+ }
+
+ public class B extends A {
+    void print() { } //Wrong overriden but compiler will not displays error or
+  }                  //explanation (message)
+
+ 
+ So, in order to override a super class method properly we must have to use
+ @Override annotation (instruction). 
+
+ So we will use @Override whenever we want to override a method:
+
+ public class B extends A {
+    @Override
+    void print() { } // Now, compiler throws error - says wrong overriden
+  } 
+
+ But here is the "valid" code:
+
+   public class B extends A {
+    @Override
+    public void print(int m) { } 
+   } 
+
+Example: Override "equals", "hashCode" and "toString" methods of "java.lang.Object" super class.
+
+Always override "equals" to determine whether two objects have similar content or not.
+
+When you need to show object data again & again for testing or debugging purpose then always override "toString()".
+
+When you want to compare object data with equals, greater or less operators then override the "hashCode" method.
+
+
+package in.abc;
+
+public class Product {
+   private int id;
+   private String name;
+
+   public Product(int id, String name) {
+      this.id = id; 
+      this.name = name;
+   }
+   //getter & setters
+
+   @Override
+   public boolean equals(Object obj) {
+      if(obj == null) return false;
+
+       /*
+      Product other = (Product) obj;
+      if( id!=other.id) return false;
+      if( !name.equals(other.name)) return false;
+      return true;
+      */
+
+      //OR
+
+       return hashCode() == obj.hashCode();
+   }
+
+  @Override
+  public String toString() {
+    return id + " " + name;
+  }
+
+ @Override
+ public int hashCode() {
+     return id + name.hashCode();
+ }
+}
+
+
+package in.abc;
+
+public class ProductTest {
+  public static void main(String []args){
+   
+     String str1 = "raj";
+     String str2 = "raj";
+
+     System.out.println(str1.hashCode() + " " + str2.hashCode());
+
+    Product p1 = new Product(10,"Pencil");
+    Product p2 = new Product(10,"pencil");
+
+    if(p1.equals(p2)) {
+       System.out.println("Eq");
+    } else {
+       System.out.println("Not Eq");
+    }
+
+   System.out.println(p1 + " " + p2);  
+   
+    System.out.println(p1.hashCode() + " " + p2.hashCode());
+    if(p1.hashCode()>p2.hashCode() {
+      //code
+    }
+  }
+}//end

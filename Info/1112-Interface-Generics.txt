@@ -1,0 +1,234 @@
+ Interface and its applications
+ ==============================================
+
+ 
+ The "interface" is a datatype to represent the method references (function address)
+ and to define a "standard".
+
+ Library developer uses "interfaces" to create an outline between the actual code
+ and its prototype or model. ( In c/c++, header files represent the interface - they contains function prototype or models and Java or C# these models are represented by  the interfaces)
+
+Example:
+
+package in.abc;
+public interface Language {
+  void speak();   // speak() is called method reference or function pointer
+}
+
+package in.abc;
+public class English implements Language {
+  @Override
+  public void speak() {
+    System.out.println("I can speak English.");
+  }
+}
+package in.abc;
+public class Gujarati implements Language {
+  @Override
+  public void speak() {
+    System.out.println("I can speak Gujarati.");
+  }
+}
+
+code in main:
+
+  Language lang = null;
+
+   // Virtual Method Table or Virtual Table (VT)
+  |-----------------------------------|
+  | Method     | Reference            |
+  |------------|----------------------|
+  | speak      |  null                |
+  |-----------------------------------|
+
+  Gujarati g = new Gujarati();
+  |-----------------------------------|
+  | Method     | Reference            |
+  |------------|----------------------|
+  | speak      |  Gujrati.speak()     |
+  |-----------------------------------|
+ English e = new English();
+  |-----------------------------------|
+  | Method     | Reference            |
+  |------------|----------------------|
+  | speak      |  English.speak()     |
+  |-----------------------------------|
+  lang = g;   // assigns g.speak reference to lang.speak
+  |-----------------------------------|
+  | Method     | Reference            |
+  |------------|----------------------|
+  | speak      |  Gujrati.speak       |
+  |-----------------------------------|
+  lang.speak(); // I can speak Gujarati.
+  lang = e; // assigns e.speak reference to lang.speak
+  |-----------------------------------|
+  | Method     | Reference            |
+  |------------|----------------------|
+  | speak      |  English.speak       |
+  |-----------------------------------|
+  lang.speak(); // I can speak English.
+
+  Language []speaker = { new English(), new Gujarati(), new Gujarati() };
+  for(Language s: speaker) {
+     s.speak();
+   }
+
+  //Create anonymous inner class by implementing interface
+       lang = new Language() {
+              @Override
+              public void speak() {
+                  System.out.println("I can speak Sanskrit");
+              }
+          };
+        lang.speak();
+
+       Language french = new Language() {   //  new [? implememnts interface]
+           @Override public void speak() {
+              System.out.println("I can speak French.");
+           }
+       };
+      french.speak();
+
+
+NOTE: With anonymous inner syntax, the Java compiler automatically extends or implements an interface. So there is a common syntax.
+  
+    : With JDK 8, you can use "lambda expression" syntax to create anonymous
+      inner class.  
+
+          Syntax:  Interface var = (param-list) -> single_statement;
+                    Interface var = (param-list) -> {
+                         multi-statement;
+                    };
+Example: code in main
+
+ Language english = () -> System.out.println("I can speak English.");
+ Language guj = () -> {
+     System.out.println("I can speak Gujarati.");
+     System.out.println("I can read Gujarati.");
+  };
+
+  english.speak();
+  guj.speak();
+
+
+Example: Create three "tasks" which runs independently (threaded or concurrently)
+
+         Code in main:
+
+        Thread task1 = new Thread(){
+             @Override public void run() {
+                 System.out.println("Task1 - first step");
+                 System.out.println("Task1 - second step");
+             }
+          };
+
+        Thread task2 = new Thread(){
+            @Override public void run() {
+                System.out.println("Task2 - first step");
+                System.out.println("Task2 - second step");
+            }
+        };
+        Thread task3 = new Thread(){
+            @Override public void run() {
+                System.out.println("Task3 - first step");
+            }
+        };
+
+        //execute the tasks
+        task1.start();
+        task2.start();
+        task3.start();
+
+Generics
+=====================================================
+
+Generics is OOP mechanism to reuse the "source code" by passing (placing) TYPES (datatypes) just like a method parameters. 
+
+In Java, the generic type parameter must be a sub-class of "java.lang.Object" and hence we cannot use "primitive type - int, float, char, double, boolean, short etc" as a type parameters. Instead we will have to use wrapper types - Integer, Short, Long, Double, Float, Boolean, and Character.
+
+Why we need a "generic" type?
+
+Consider the following example, here in this example, we have to create a separate "STack" for each different datatype.
+
+class StackInt {
+    int []array;
+    public void push(int item) {}
+    public int pop() { }
+}
+class StackString {
+    string []array;
+    public void push(string item) {}
+    public string pop() { }
+}
+class StackFloat {
+    float []array;
+    public void push(float item) {}
+    public float pop() { }
+}
+..... and so on...
+
+But if we use "generic" type then this problem can be easily solved.  
+            |----------- here "T" is called type parameter
+            V
+class Stack<T> {
+   T []array;
+   public void push(T item) {}
+   public T pop() {}
+} 
+ And use the same class for different datatypes:
+   Stack<String> s = new Stack<String>();
+   Stack<Student> s1 = new Stack<>();
+   Stack<Integer> s2 = new Stack<>();
+ 
+Syntax:
+
+class ClassName<Param1,Param2,....> {} 
+interface InterfaceName<Param1,param2,...> {}
+
+Note: In Java, we will use upper letter to denote the type parameters.
+   For example, class Stack<E> {} or Pair<K,V> {} etc
+
+Example:
+
+package in.abc;
+
+public class Data<T> {
+   private T value;
+   public void setValue(T value) {
+       this.value = value;
+   }
+   public T getValue() {
+        return value;
+   }
+}
+
+code in main:
+
+          Data<String> s1=new Data<>();
+          Data<Integer> s2 = new Data<>();
+          
+          s1.setValue("Hello");
+          s2.setValue(100);
+           
+          System.out.println(s1.getValue() + " " + s2.getValue());
+
+Example: Write a class to represent pair of data e.g  "name-address"  or "city-pin"
+or "roll-name" etc.
+
+package in.abc;
+public class Pair<K,V> {
+   private K key;
+   private V value;
+   //constructors , getters & setters
+}
+
+Use,
+
+  Pair<Integer,String> std = new Pair<>();
+  std.setKey(10);
+  std.setValue("Mr.A");
+
+Tomorrow: Classes of java.util package - Date & Time
+                                       - Collection Framework (generics classes)
+                                         (HashMap<K,V>, ArrayList<T>, HashSet<T> etc)
+
